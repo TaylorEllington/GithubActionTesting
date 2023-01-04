@@ -2,8 +2,8 @@ name: github actions PR test
 run-name: Validating PR
 on:
   pull_request:
-    type: [opened, edited]
- jobs:
+    types: [opened, edited]
+jobs:
   Audit-Pull-Request:
     runs-on: ubuntu-latest
     steps:

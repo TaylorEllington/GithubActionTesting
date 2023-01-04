@@ -3,7 +3,7 @@ run-name: Validating PR
 on:
   pull_request:
     type: [opened, edited]
-  jobs:
+ jobs:
   Audit-Pull-Request:
     runs-on: ubuntu-latest
     steps:

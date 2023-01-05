@@ -20,8 +20,6 @@ jobs:
       issues: write
         
     steps:
-      - name: sanity check
-        wit
       - name: Fetch Labels
         id: fetch-labels
         uses: actions/github-script@v6
@@ -31,8 +29,9 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-            })
+            })  
+          result-encoding: string
+          
       - name: Print Labels
-        uses: actions/github-script@v6
         run: echo " DING ${{steps.fetch-labels.outputs.result}}"
   

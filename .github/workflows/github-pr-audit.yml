@@ -5,6 +5,8 @@ on:
     types:
       - opened
       - edited
+      - labeled
+      - unlabeled
       
   issue_comment:
     types:

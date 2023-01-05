@@ -18,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch Labels
+        id: fetch-labels
         uses: actions/github-script@v6
         with: 
           script: |
@@ -27,5 +28,5 @@ jobs:
               repo: context.repo.repo,
             })
       - name: Print Labels
-        run: echo " DING ${{steps.set-result.outputs.result}}"
+        run: echo " DING ${{steps.fetch-labels.outputs.result}}"
   

@@ -15,5 +15,5 @@ jobs:
   Audit-Pull-Request:
     runs-on: ubuntu-latest
     steps:
-      - run: echo " PR has been ${{ GITHUB_EVENT_NAME }} 
+      - run: echo " PR has been ${{ env.GITHUB_EVENT_NAME }} 
   

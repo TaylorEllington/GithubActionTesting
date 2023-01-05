@@ -16,6 +16,9 @@ on:
 jobs:
   Audit-Pull-Request:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+        
     steps:
       - name: Fetch Labels
         id: fetch-labels

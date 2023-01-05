@@ -1,8 +1,16 @@
-name: github actions PR test
-run-name: Validating PR
+name: Github PR Audit
+
 on:
   pull_request:
-    types: [opened, edited]
+    types:
+      - opened
+      - edited
+      
+  issue_comment:
+    types:
+      - created
+      - edited
+      - deleted
 jobs:
   Audit-Pull-Request:
     runs-on: ubuntu-latest

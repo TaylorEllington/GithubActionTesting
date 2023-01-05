@@ -17,5 +17,14 @@ jobs:
   Audit-Pull-Request:
     runs-on: ubuntu-latest
     steps:
-      - run: echo " PR has been ${{ github.event_name }} "
+      - uses: actions/github-script@v6
+        with: 
+          script: |
+            github.rest.issues.listLabelsOnIssue({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            ])
+      - name: Get result
+        run: echo " DING ${{steps.set-result.outputs.result}}"
   

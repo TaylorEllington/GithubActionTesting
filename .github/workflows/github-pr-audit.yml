@@ -25,11 +25,11 @@ jobs:
         uses: actions/github-script@v6
         with: 
           script: |
-            github.rest.issues.listLabelsOnIssue({
+            github.rest.issues.get({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-            })  
+            }) 
           result-encoding: string
           
       - name: Print Labels

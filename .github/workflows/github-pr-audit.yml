@@ -28,7 +28,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               })
-              console.log(lables)
+              console.log(labels)
               return labels
 
           result-encoding: string

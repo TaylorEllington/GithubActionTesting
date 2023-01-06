@@ -42,12 +42,12 @@ jobs:
 
       - name: Post Results
         uses: actions/github-script@v6
-        if: steps.audit.outputs.error == "bad-labels"
+        if: ${{ steps.audit.outputs.error == 'bad-labels' }}
         with: 
          script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "You need to add either the \"Public Release Notes\" or \"No Release Notes\" label!"
+              body: 'You need to add either the \"Public Release Notes\" or \"No Release Notes\" label!'
             })

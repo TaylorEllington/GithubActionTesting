@@ -30,5 +30,6 @@ jobs:
               });
                     
       - name: Print Labels
-        run: echo " DING ${{ JSON.parse(steps.fetch-labels.outputs.result).data }} pls"
+        uses: ./pr-audit-action
+        response: "${{steps.fetch-labels.outputs.result}}"
   

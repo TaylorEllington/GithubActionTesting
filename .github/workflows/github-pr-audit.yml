@@ -5,6 +5,8 @@ on:
     types:
       - opened
       - edited
+      - labeled
+      - unlabeled
       
   issue_comment:
     types:
@@ -14,6 +16,20 @@ on:
 jobs:
   Audit-Pull-Request:
     runs-on: ubuntu-latest
+        
     steps:
-      - run: echo " PR has been ${{ github.event_name }} "
+      - name: Fetch Labels
+        id: fetch-labels
+        uses: actions/github-script@v6
+        with: 
+          script: |
+            return github.rest.issues.listLabelsOnIssue({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              });
+                    
+      - name: Print Labels
+        uses: ./pr-audit-action
+        response: "${{steps.fetch-labels.outputs.result}}"
   

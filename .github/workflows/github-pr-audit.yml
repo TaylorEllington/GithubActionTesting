@@ -36,8 +36,7 @@ jobs:
         uses: ./pr-audit-action
         with:
           response: "${{steps.fetch-labels.outputs.result}}"
-          repoOwner: ${{ github.repository_owner }}
-          repoName: ${{ github.repository.replace(github.repository_owner+'/', '')}}
-          pullNumber: ${{JSON.parse(  fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8').pull_request.number }}
-          myToken: ${{secrets.GITHUB_TOKEN}}
+          repoName: ${{ github.repository }}
+
   
+S

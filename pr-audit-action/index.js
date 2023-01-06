@@ -20,17 +20,23 @@ try{
     }
 
     if(!publicRN && !noRN){
-        const myToken = core.getInput('myToken')
-        var repoOwner = core.getInput('repoOwner');
-        var repoName = core.getInput('repoName');
-        var pullNumber = core.getInput('pullNumber');
+        //const myToken = core.getInput('myToken')
+
+        var fullName = core.getInput('repoName');
+        var splitName = fullName.split('/');
+
+        const fs = require('fs')
+        const ev = JSON.parse(
+            fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8')
+        )
+        const prNum = ev.pull_request.number
 
 
-        const octokit = github.getOctokit(myToken)
+        const octokit = github.getOctokit(secrets.GITHUB_TOKEN)
         await octokit.rest.issues.createComment({
-            owner: repoOwner,
-            repo: repoName,
-            pull_number: pullNumber,
+            owner: splitName[0],
+            repo: splitName[1],
+            pull_number: prNum,
             body: "You need to add either the \"Public Release Notes\" or \"No Release Notes\" label!"
         })
         console.log("no tags! failed!")

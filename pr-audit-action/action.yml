@@ -7,7 +7,7 @@ inputs:
 
 outputs:
   error:
-  description: "status code showing what is wrong with the PR"
+    description: 'what is wrong with the pr'
 
 
 runs:

@@ -32,9 +32,22 @@ jobs:
               repo: context.repo.repo,
               });
                     
-      - name: Print Labels
+      - name: Audit Labels
+        id: audit
         uses: ./pr-audit-action
         with:
           response: "${{steps.fetch-labels.outputs.result}}"
           repoName: ${{ github.repository }}
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Post Results
+        uses: actions/github-script@v6
+        if: steps.audit.outputs.error == "bad-labels"
+        with: 
+         script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "You need to add either the \"Public Release Notes\" or \"No Release Notes\" label!"
+            })

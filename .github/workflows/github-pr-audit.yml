@@ -28,13 +28,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               });
-              
-      - name: Respectfully
-        uses: actions/github-script@v6
-        with:
-           script: |
-             console.log(context.steps.fetch-labels.outputs.result)
-          
+                    
       - name: Print Labels
         run: echo " DING ${{steps.fetch-labels.outputs.result}} pls"
   

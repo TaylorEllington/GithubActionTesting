@@ -7,6 +7,8 @@ inputs:
 
 outputs:
   error:
+  description: "status code showing what is wrong with the PR"
+
 
 runs:
   using: 'node16'

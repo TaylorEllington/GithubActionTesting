@@ -23,12 +23,12 @@ jobs:
         uses: actions/github-script@v6
         with: 
           script: |
-            github.rest.issues.createComment({
+            github.rest.issues.listLabelsOnIssue({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
             })
+            console.log(context.issue.number)
           result-encoding: string
           
       - name: Print Labels

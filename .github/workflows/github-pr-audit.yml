@@ -37,6 +37,3 @@ jobs:
         with:
           response: "${{steps.fetch-labels.outputs.result}}"
           repoName: ${{ github.repository }}
-
-  
-S

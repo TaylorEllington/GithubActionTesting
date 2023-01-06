@@ -18,7 +18,7 @@ try{
     var value = core.getInput('response');
     const payload = JSON.parse(value)
 
-    console.log(payload.data)
+    console.log(payload)
 
     var publicRN = false;
     var noRN = false

@@ -38,11 +38,10 @@ try{
         var fullName = core.getInput('repoName');
         var splitName = fullName.split('/');
 
-        const fs = require('fs');
-        const ev = JSON.parse(
-            fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8')
-        );
-        const prNum = ev.pull_request.number;
+        // this is hacky, GH is not great at providing this info
+        var url = payload.url
+        var urlPieces = url.split('/')
+        const prNum = urlPieces[urlPieces.length - 2];
 
         report(splitName[0], splitName[1], prNum, token);
 

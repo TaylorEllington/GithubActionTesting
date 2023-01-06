@@ -31,14 +31,13 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               });
-                    
+
       - name: Audit Labels
         id: audit
         uses: ./pr-audit-action
         with:
           response: "${{steps.fetch-labels.outputs.result}}"
-          repoName: ${{ github.repository }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+
 
       - name: Post Results
         uses: actions/github-script@v6

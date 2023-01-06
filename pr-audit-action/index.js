@@ -1,17 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-async function report(owner, repo, pr, token){
-    const octokit = github.getOctokit(token)
-        await octokit.rest.issues.createComment({
-            owner: owner,
-            repo: repo,
-            pull_number: pr,
-            body: "You need to add either the \"Public Release Notes\" or \"No Release Notes\" label!"
-        })
-        console.log("no tags! failed!")
-        core.setFailed("Need to add PR tags")
-}
 
 
 try{

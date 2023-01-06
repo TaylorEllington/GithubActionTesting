@@ -4,11 +4,9 @@ inputs:
   response:
     description: "the http response"
     required: true
-  repoName:
-    required: true
-  token:
-    required: true
 
+outputs:
+  error:
 
 runs:
   using: 'node16'

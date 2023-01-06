@@ -31,5 +31,6 @@ jobs:
                     
       - name: Print Labels
         uses: ./pr-audit-action
-        response: "${{steps.fetch-labels.outputs.result}}"
+        with:
+          response: "${{steps.fetch-labels.outputs.result}}"
   

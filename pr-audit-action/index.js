@@ -33,7 +33,7 @@ try{
     }
 
     if(!publicRN && !noRN){
-        const token = core.getInput(token)
+        const token = core.getInput('token');
 
         var fullName = core.getInput('repoName');
         var splitName = fullName.split('/');

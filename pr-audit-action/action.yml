@@ -1,17 +1,12 @@
 name: "PR Audit"
 description: "Check to see if PR is up to standards"
 inputs:
-  - response:
-      description: "the http response"
-      required: true
-  - repoOwner:
-      required: true
-  - repoName:
-      required: true
-  - pullNumber:
-      required: true
+  response:
+    description: "the http response"
+    required: true
+  repoName:
+    required: true
 
-  
 
 runs:
   using: 'node16'

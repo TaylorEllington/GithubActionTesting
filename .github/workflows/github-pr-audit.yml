@@ -30,5 +30,5 @@ jobs:
               });
                     
       - name: Print Labels
-        run: echo " DING ${{ steps.fetch-labels.outputs.result.data }} pls"
+        run: echo " DING ${{ JSON.parse(steps.fetch-labels.outputs.result).data }} pls"
   

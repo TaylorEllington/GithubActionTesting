@@ -3,7 +3,9 @@ const github = require('@actions/github');
 
 try{
     var value = core.getInput('response');
-    console.log(value)
+    const payload = JSON.parse(value)
+
+    console.log(payload.data)
 
 
 } catch ( error ){

@@ -42,7 +42,7 @@ jobs:
 
       - name: Post Results
         uses: actions/github-script@v6
-        if: ${{ steps.audit.outputs.error == 'bad-labels' }}
+        if: ${{ steps.audit.outputs.error == 'bad-labels' && failure() }}
         with: 
          script: |
             github.rest.issues.createComment({

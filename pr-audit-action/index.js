@@ -31,23 +31,9 @@ try{
     }
 
     if(!publicRN && !noRN){
-        // const token = core.getInput('token');
 
-        // var fullName = core.getInput('repoName');
-        // var splitName = fullName.split('/');
-
-        // // this is hacky, GH is not great at providing this info
-        // var url = payload.url
-        // var urlPieces = url.split('/')
-        // const prNum = urlPieces[urlPieces.length - 2];
-
-        // console.log(splitName[0])
-        // console.log(splitName[1])
-        // console.log(prNum)
-        
-        // report(splitName[0], splitName[1], prNum, token);
-
-        core.setOutput("error", "bad-labels");
+        core.setOutput('error', 'bad-labels');
+        core.setFailed("No PR status label")
 
     }
 

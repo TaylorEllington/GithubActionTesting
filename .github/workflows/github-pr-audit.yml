@@ -23,11 +23,13 @@ jobs:
         uses: actions/github-script@v6
         with: 
           script: |
-             return github.rest.issues.listLabelsOnIssue({
+              labels =  github.rest.issues.listLabelsOnIssue({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               })
+              console.log(lables)
+              return labels
 
           result-encoding: string
           

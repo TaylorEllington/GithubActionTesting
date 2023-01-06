@@ -1,8 +1,8 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-async function report(owner, repo, pr){
-    const octokit = github.getOctokit(secrets.GITHUB_TOKEN)
+async function report(owner, repo, pr, token){
+    const octokit = github.getOctokit(token)
         await octokit.rest.issues.createComment({
             owner: owner,
             repo: repo,
@@ -33,7 +33,7 @@ try{
     }
 
     if(!publicRN && !noRN){
-        //const myToken = core.getInput('myToken')
+        const token = core.getInput(token)
 
         var fullName = core.getInput('repoName');
         var splitName = fullName.split('/');
@@ -44,7 +44,7 @@ try{
         );
         const prNum = ev.pull_request.number;
 
-        report(splitName[0], splitName[1], prNum);
+        report(splitName[0], splitName[1], prNum, token);
 
     }
 

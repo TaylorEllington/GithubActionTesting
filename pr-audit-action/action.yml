@@ -6,6 +6,8 @@ inputs:
     required: true
   repoName:
     required: true
+  token:
+    required: true
 
 
 runs:
